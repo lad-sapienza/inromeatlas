@@ -1,0 +1,21 @@
+---
+title: "InRome Atlas"
+date: "2023-10-01"
+slug: "maps"
+description: "An easy to use component for building powerful and fully customizable maps"
+menu_position: 1
+---
+
+import { MapLibre } from "../../modules/scms.js"
+
+### MapLibre: Building a map from a JSON style
+
+  <MapLibre 
+    center="12.4747776,41.8602353,10"
+    mapStyle="/data/inrome.json"
+    geolocateControl="top-left"
+    fullscreenControl="top-left"
+    navigationControl="top-left"
+    scaleControl="bottom-left"
+  >
+  </MapLibre>
