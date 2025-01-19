@@ -23,8 +23,12 @@ const Layout = ({ children }) => {
   const [isHomePage, setIsHomePage] = React.useState(false)
 
   React.useEffect(() => {
-    // Controlla se il percorso è la homepage in inglese o italiano
-    const pathname = window.location.pathname.replace(/\/$/, "") // Rimuovi slash finale
+    // Ottieni il pathname corrente rimuovendo il prefisso della base URL
+    const pathname = window.location.pathname
+      .replace(__PATH_PREFIX__, "")
+      .replace(/\/$/, "")
+
+    // Controlla se il percorso è una delle homepages
     const isHome =
       pathname === "" ||
       pathname === "/" ||
