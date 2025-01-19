@@ -68,9 +68,6 @@ function AutoNavbar(props) {
     <Menu>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
-          <Navbar.Brand href={withPrefix(`/${currentLanguage}/`)}>
-            {props.siteTitle}
-          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
@@ -108,16 +105,102 @@ function AutoNavbar(props) {
   )
 }
 
-//style
 const Menu = styled.div`
   .bg-body-tertiary {
-    background-color: #ececec !important;
+    background-color: #8b5a40 !important;
+    padding: 0;
+  }
+  .nav-item {
+    padding: 0;
+    margin: 0;
+    color: #fff;
+    border-right: 1px solid white;
+  }
+
+  .nav-item:hover {
+    color: #000;
+    background-color: #a99e58;
+  }
+
+  .containerLink {
+    display: inline-block;
+    width: 110px;
+    text-align: center;
+  }
+
+  .containerLink:hover {
+    background-color: #a99e58;
+  }
+
+  .nav-link {
+    padding: 10px 0;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+
+  .nav-link:hover {
+    color: #000;
+    background-color: #a99e58;
+  }
+
+  #basic-nav-dropdown {
+    color: #fff;
+  }
+
+  .dropdown-menu {
+    background-color: #a99e58;
+    color: #fff;
+    padding-left: 10px;
+    border-radius: 0;
+    border: none !important;
+    margin: 0 !important;
+  }
+
+  .dropdown-item {
+    color: #fff;
+    border: 0 !important;
+  }
+
+  .dropdown-item:hover {
+    background-color: #fff;
+    color: #000;
   }
 
   .language-switcher {
     display: flex;
+    align-items: center;
     gap: 10px;
     margin-left: auto;
   }
+
+  .language-switcher .btn {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+
+  .language-switcher .btn-primary {
+    background-color: #a99e58;
+    border-color: #a99e58;
+  }
+
+  .language-switcher .btn-primary:hover {
+    background-color: #8b5a40;
+    border-color: #8b5a40;
+  }
+
+  .language-switcher .btn-outline-primary {
+    color: #a99e58;
+    border-color: #a99e58;
+  }
+
+  .language-switcher .btn-outline-primary:hover {
+    background-color: #a99e58;
+    color: #fff;
+  }
 `
+
 export default AutoNavbar

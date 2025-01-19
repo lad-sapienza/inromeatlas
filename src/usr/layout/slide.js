@@ -65,6 +65,7 @@ const Slider = styled.section`
   .slide {
     min-height: auto;
     border-bottom: #3e281c solid 10px;
+    margin-bottom: 50px;
   }
   .subTitle {
     text-align: center;
