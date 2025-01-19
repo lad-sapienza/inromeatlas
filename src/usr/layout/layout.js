@@ -6,8 +6,7 @@ import Navbar from "../../modules/autoNavbar"
 import Footer from "./footer"
 import Header from "./header"
 import "./layout.scss"
-
-const Slide = React.lazy(() => import("./slide")) // Lazy load dello slide
+import Slide from "./slide"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -43,11 +42,7 @@ const Layout = ({ children }) => {
       <div className="container-fluid p-0">
         <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
         <Navbar />
-        {isHomePage && (
-          <React.Suspense fallback={<div>Loading slide...</div>}>
-            <Slide />
-          </React.Suspense>
-        )}
+        {isHomePage && <Slide />}
         <main>
           <Container>{children}</Container>
         </main>

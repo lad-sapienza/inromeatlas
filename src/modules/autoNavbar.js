@@ -107,8 +107,9 @@ function AutoNavbar(props) {
 
 const Menu = styled.div`
   .bg-body-tertiary {
-    background-color: #8b5a40 !important;
+    background-color: rgb(110, 80, 63) !important;
     padding: 0;
+    border-top: 20px solid #3e281c;
   }
   .nav-item {
     padding: 0;

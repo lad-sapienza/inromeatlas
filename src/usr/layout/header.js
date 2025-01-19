@@ -52,11 +52,6 @@ const HeaderSection = ({ siteTitle }) => (
           </div>
         </Col>
       </Row>
-      <Row className="lang px-1 pt-1">
-        <Col sm={11} xs={12} className="d-flex justify-content-start p-0">
-          <div></div>
-        </Col>
-      </Row>
     </Container>
   </Header>
 )
@@ -70,25 +65,6 @@ const Header = styled.section`
     color: #fff;
     font-family: "Roboto";
     font-size: 1.2rem;
-  }
-
-  .lang {
-    color: #fff;
-    font-size: 0.9rem;
-    background-color: #3e281c;
-    width: 100%;
-    margin: 0;
-    min-height: 20px;
-    text-align: center;
-  }
-
-  a {
-    color: #fff;
-    text-decoration: none;
-  }
-  a:hover {
-    color: rgb(169, 158, 88);
-    text-decoration: none;
   }
 `
 
