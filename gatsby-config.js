@@ -14,7 +14,7 @@ require("dotenv").config({
 module.exports = {
   pathPrefix: process.env.NODE_ENV === "production" ? "/inromeatlas" : "/",
   siteMetadata: {
-    title: `s:CMS`,
+    title: `The INscribed city: urban structures and interaction in imperial ROME`,
     description: `S:CMS | Static site Content Managemt System is developend and maintained by LAD: Laboratorio di Archeologia Digitale alla Sapienza`,
     author: `Julian Bogdani <julian.bogdani@uniroma1.it>`,
     siteUrl: `https://github.com/lab-archeologia-digitale/sCSM#readme`,
