@@ -42,7 +42,7 @@ const Layout = ({ children }) => {
     <>
       <div className="container-fluid p-0">
         <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-        <Navbar siteTitle={data.site.siteMetadata?.title || `Title`} />
+        <Navbar />
         {isHomePage && (
           <React.Suspense fallback={<div>Loading slide...</div>}>
             <Slide />
