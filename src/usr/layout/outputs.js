@@ -2,16 +2,41 @@ import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { Row, Col, Container, Card } from "react-bootstrap"
+import { Link } from "gatsby"
 
-function Output() {
+function Output({ language }) {
+  // Contenuti localizzati
+  const content = {
+    en: {
+      publications: { text: "Publications", link: "/en/publications" },
+      software: { text: "Software", link: "/en/software" },
+      preProjectPublications: {
+        text: "Pre-project Publications",
+        link: "/en/pre-project-publications",
+      },
+      bibliography: { text: "Bibliography", link: "/en/bibliography" },
+    },
+    it: {
+      publications: { text: "Pubblicazioni", link: "/it/pubblicazioni" },
+      software: { text: "Software", link: "/it/software" },
+      preProjectPublications: {
+        text: "Pubblicazioni Pre-progetto",
+        link: "/it/pubblicazioni-pre-progetto",
+      },
+      bibliography: { text: "Bibliografia", link: "/it/bibliografia" },
+    },
+  }
+
+  const localizedContent = content[language] || content.en
+
   return (
     <section className="py-5 text-center news">
       <Wrapper>
-        <section className="py-5 text-center news">
-          <Container>
-            <Row className="mb-5">
-              <Col sm={6} xs={12}>
-                <Card>
+        <Container>
+          <Row className="mb-5">
+            <Col sm={6} xs={12}>
+              <Card>
+                <Link to={localizedContent.publications.link}>
                   <StaticImage
                     src="../../images/biblio.png"
                     formats={["AUTO", "WEBP"]}
@@ -20,12 +45,16 @@ function Output() {
                     height={300}
                   />
                   <div className="card-body">
-                    <h5 className="card-title">Pubblicazioni</h5>
+                    <h5 className="card-title">
+                      {localizedContent.publications.text}
+                    </h5>
                   </div>
-                </Card>
-              </Col>
-              <Col sm={6} xs={12}>
-                <Card>
+                </Link>
+              </Card>
+            </Col>
+            <Col sm={6} xs={12}>
+              <Card>
+                <Link to={localizedContent.software.link}>
                   <StaticImage
                     src="../../images/software.png"
                     formats={["AUTO", "WEBP"]}
@@ -34,14 +63,18 @@ function Output() {
                     height={300}
                   />
                   <div className="card-body">
-                    <h5 className="card-title">Software</h5>
+                    <h5 className="card-title">
+                      {localizedContent.software.text}
+                    </h5>
                   </div>
-                </Card>
-              </Col>
-            </Row>
-            <Row>
-              <Col sm={6} xs={12}>
-                <Card>
+                </Link>
+              </Card>
+            </Col>
+          </Row>
+          <Row>
+            <Col sm={6} xs={12}>
+              <Card>
+                <Link to={localizedContent.preProjectPublications.link}>
                   <StaticImage
                     src="../../images/biblio.png"
                     formats={["AUTO", "WEBP"]}
@@ -50,12 +83,16 @@ function Output() {
                     height={300}
                   />
                   <div className="card-body">
-                    <h5 className="card-title">Pubblicazioni Pre-progetto</h5>
+                    <h5 className="card-title">
+                      {localizedContent.preProjectPublications.text}
+                    </h5>
                   </div>
-                </Card>
-              </Col>
-              <Col sm={6} xs={12}>
-                <Card>
+                </Link>
+              </Card>
+            </Col>
+            <Col sm={6} xs={12}>
+              <Card>
+                <Link to={localizedContent.bibliography.link}>
                   <StaticImage
                     src="../../images/biblio2.png"
                     formats={["AUTO", "WEBP"]}
@@ -64,13 +101,15 @@ function Output() {
                     height={300}
                   />
                   <div className="card-body">
-                    <h5 className="card-title">Bibliografia</h5>
+                    <h5 className="card-title">
+                      {localizedContent.bibliography.text}
+                    </h5>
                   </div>
-                </Card>
-              </Col>
-            </Row>
-          </Container>
-        </section>
+                </Link>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
       </Wrapper>
     </section>
   )
