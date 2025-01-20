@@ -53,14 +53,15 @@ function AutoNavbar(props) {
       // Usa lo slug della pagina corrispondente
       newSlug = correspondingPage.frontmatter.slug
     } else {
-      // Se non trovi una pagina corrispondente, usa la homepage
-      newSlug = lang === "en" ? "" : "home" // Nessun slug per inglese, "home" per italiano
+      // Se non trovi una pagina corrispondente, usa "home" per entrambe le lingue
+      newSlug = "home"
     }
 
     // Costruisci il nuovo percorso
-    const newPath = lang === "en" ? `/${newSlug}` : `/it/${newSlug}`
+    const newPath = lang === "en" ? `/en/${newSlug}` : `/it/${newSlug}`
 
-    navigate(newPath.replace(/\/\//g, "/")) // Rimuove eventuali "//" nel percorso
+    // Rimuovi doppie barre "//" se presenti
+    navigate(newPath.replace(/\/\//g, "/"))
   }
 
   return (
