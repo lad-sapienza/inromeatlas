@@ -2,8 +2,25 @@ import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { Row, Col, Container, Card } from "react-bootstrap"
+import { Link } from "gatsby"
 
-function Box() {
+function Box({ language }) {
+  // Testi e link in base alla lingua
+  const content = {
+    en: {
+      collaborations: { text: "Collaborations", link: "/en/collaborations" },
+      news: { text: "News", link: "/en/news" },
+      output: { text: "Outputs", link: "/en/outputs" },
+    },
+    it: {
+      collaborations: { text: "Collaborazioni", link: "/it/collaborazioni" },
+      news: { text: "Notizie", link: "/it/notizie" },
+      output: { text: "Risultati", link: "/it/risultati" },
+    },
+  }
+
+  const localizedContent = content[language] || content.en
+
   return (
     <section className="py-5 text-center news">
       <Wrapper>
@@ -11,44 +28,54 @@ function Box() {
           <Row>
             <Col sm={4} xs={12}>
               <Card>
-                <StaticImage
-                  src="../../images/progetti.png"
-                  formats={["AUTO", "WEBP"]}
-                  alt="collaborazioni"
-                  className="card-img-top"
-                  height={300}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">Collaborations</h5>
-                </div>
+                <Link to={localizedContent.collaborations.link}>
+                  <StaticImage
+                    src="../../images/progetti.png"
+                    formats={["AUTO", "WEBP"]}
+                    alt="collaborazioni"
+                    className="card-img-top"
+                    height={300}
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">
+                      {localizedContent.collaborations.text}
+                    </h5>
+                  </div>
+                </Link>
               </Card>
             </Col>
             <Col sm={4} xs={12}>
               <Card>
-                <StaticImage
-                  src="../../images/news.png"
-                  formats={["AUTO", "WEBP"]}
-                  alt="news"
-                  className="card-img-top"
-                  height={300}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">News</h5>
-                </div>
+                <Link to={localizedContent.news.link}>
+                  <StaticImage
+                    src="../../images/news.png"
+                    formats={["AUTO", "WEBP"]}
+                    alt="news"
+                    className="card-img-top"
+                    height={300}
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">{localizedContent.news.text}</h5>
+                  </div>
+                </Link>
               </Card>
             </Col>
             <Col sm={4} xs={12}>
               <Card>
-                <StaticImage
-                  src="../../images/output.png"
-                  formats={["AUTO", "WEBP"]}
-                  alt="output"
-                  className="card-img-top"
-                  height={300}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">Outputs</h5>
-                </div>
+                <Link to={localizedContent.output.link}>
+                  <StaticImage
+                    src="../../images/output.png"
+                    formats={["AUTO", "WEBP"]}
+                    alt="output"
+                    className="card-img-top"
+                    height={300}
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">
+                      {localizedContent.output.text}
+                    </h5>
+                  </div>
+                </Link>
               </Card>
             </Col>
           </Row>
