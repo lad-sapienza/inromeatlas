@@ -25,13 +25,15 @@ function AutoNavbar(props) {
     }
   `)
 
-  // Ottieni la lingua corrente dall'URL
-  const currentLanguage =
-    typeof window !== "undefined"
-      ? window.location.pathname
-          .replace(/^\/inromeatlas\//, "")
-          .split("/")[0] || "en"
-      : "en"
+  const [currentLanguage, setCurrentLanguage] = React.useState("en")
+
+  // Aggiorna la lingua corrente quando cambia l'URL
+  React.useEffect(() => {
+    const language =
+      window.location.pathname.replace(/^\/inromeatlas\//, "").split("/")[0] ||
+      "en"
+    setCurrentLanguage(language)
+  }, [window.location.pathname])
 
   // Filtra le voci di menu per lingua corrente
   const filteredMenuItems = data.allMdx.nodes.filter(
