@@ -12,7 +12,7 @@ require("dotenv").config({
  */
 
 module.exports = {
-  pathPrefix: process.env.NODE_ENV === "production" ? "/inromeatlas" : "/",
+  pathPrefix: "/", //process.env.NODE_ENV === "production" ? "/sCMS/" : "/",
   siteMetadata: {
     title: `The INscribed city: urban structures and interaction in imperial ROME`,
     description: `S:CMS | Static site Content Managemt System is developend and maintained by LAD: Laboratorio di Archeologia Digitale alla Sapienza`,
