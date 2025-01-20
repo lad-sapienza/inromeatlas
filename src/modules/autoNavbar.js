@@ -28,7 +28,8 @@ function AutoNavbar(props) {
   // Ottieni la lingua corrente dall'URL
   const currentLanguage =
     typeof window !== "undefined"
-      ? window.location.pathname.split("/")[1] || "en"
+      ? window.location.pathname.replace(withPrefix("/"), "").split("/")[0] ||
+        "en"
       : "en"
 
   // Filtra le voci di menu per lingua corrente
@@ -37,7 +38,9 @@ function AutoNavbar(props) {
   )
 
   const handleLanguageChange = lang => {
-    const currentPath = window.location.pathname.replace(/\/$/, "") // Rimuove eventuale "/" finale
+    const currentPath = window.location.pathname
+      .replace(withPrefix("/"), "")
+      .replace(/\/$/, "") // Rimuove il prefisso e lo slash finale
     const currentSlug = currentPath.split("/").pop() // Ottieni lo slug della pagina corrente
 
     let newSlug
@@ -58,7 +61,9 @@ function AutoNavbar(props) {
     }
 
     // Costruisci il nuovo percorso
-    const newPath = lang === "en" ? `/en/${newSlug}` : `/it/${newSlug}`
+    const newPath = withPrefix(
+      lang === "en" ? `/en/${newSlug}` : `/it/${newSlug}`,
+    )
 
     // Rimuovi doppie barre "//" se presenti
     navigate(newPath.replace(/\/\//g, "/"))
@@ -89,13 +94,21 @@ function AutoNavbar(props) {
             </Nav>
             <div className="language-switcher">
               <button
-                className={`btn ${currentLanguage === "en" ? "btn-primary" : "btn-outline-primary"}`}
+                className={`btn ${
+                  currentLanguage === "en"
+                    ? "btn-primary"
+                    : "btn-outline-primary"
+                }`}
                 onClick={() => handleLanguageChange("en")}
               >
                 EN
               </button>
               <button
-                className={`btn ${currentLanguage === "it" ? "btn-primary" : "btn-outline-primary"}`}
+                className={`btn ${
+                  currentLanguage === "it"
+                    ? "btn-primary"
+                    : "btn-outline-primary"
+                }`}
                 onClick={() => handleLanguageChange("it")}
               >
                 IT
@@ -108,7 +121,6 @@ function AutoNavbar(props) {
   )
 }
 
-//style
 const Menu = styled.div`
   .bg-body-tertiary {
     background-color: #ececec !important;
@@ -120,4 +132,5 @@ const Menu = styled.div`
     margin-left: auto;
   }
 `
+
 export default AutoNavbar
