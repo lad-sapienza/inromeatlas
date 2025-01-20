@@ -117,7 +117,7 @@ const Wrapper = styled.section`
     text-decoration: none;
 
     &:hover {
-      color: rgb(169, 158, 88);
+      color: rgb(255, 255, 255);
       text-decoration: none;
     }
   }
