@@ -28,8 +28,9 @@ function AutoNavbar(props) {
   // Ottieni la lingua corrente dall'URL
   const currentLanguage =
     typeof window !== "undefined"
-      ? window.location.pathname.replace(withPrefix("/"), "").split("/")[0] ||
-        "en"
+      ? window.location.pathname
+          .replace(/^\/inromeatlas\//, "")
+          .split("/")[0] || "en"
       : "en"
 
   // Filtra le voci di menu per lingua corrente
@@ -39,8 +40,8 @@ function AutoNavbar(props) {
 
   const handleLanguageChange = lang => {
     const currentPath = window.location.pathname
-      .replace(withPrefix("/"), "")
-      .replace(/\/$/, "") // Rimuove il prefisso e lo slash finale
+      .replace(/\/$/, "")
+      .replace(/^\/inromeatlas\//, "") // Rimuove eventuale "/" finale e il prefisso inromeatlas
     const currentSlug = currentPath.split("/").pop() // Ottieni lo slug della pagina corrente
 
     let newSlug
@@ -60,13 +61,11 @@ function AutoNavbar(props) {
       newSlug = "home"
     }
 
-    // Costruisci il nuovo percorso
-    const newPath = withPrefix(
-      lang === "en" ? `/en/${newSlug}` : `/it/${newSlug}`,
-    )
+    // Costruisci il nuovo percorso senza usare withPrefix per evitare duplicazione
+    const newPath = lang === "en" ? `/en/${newSlug}` : `/it/${newSlug}`
 
-    // Rimuovi doppie barre "//" se presenti
-    navigate(newPath.replace(/\/\//g, "/"))
+    // Naviga al nuovo percorso
+    navigate(newPath)
   }
 
   return (
