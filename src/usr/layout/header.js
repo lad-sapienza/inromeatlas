@@ -2,45 +2,69 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
-import { Container } from "react-bootstrap"
+import { Col, Container, Row } from "react-bootstrap"
 
 const HeaderSection = ({ siteTitle }) => (
   <Header>
-    <Container>
-      <div className="d-sm-flex align-items-center text-center">
-        <Link to={"/"}>
-          <StaticImage
-            src="../../images/scms-lad.png"
-            width={150}
-            quality={80}
-            formats={["AUTO", "WEBP"]}
-            alt={siteTitle}
-            className="img-fluid"
-          />
-        </Link>
-        <div className="text-start ms-3">
-          <h1>s:CMS</h1>
-          <p className="lead">
-            Static site Content Management System is developend and maintained
-            by LAD: Laboratorio di Archeologia Digitale alla Sapienza
-          </p>
-        </div>
-      </div>
+    <Container fluid>
+      <Row className="px-5 pt-5">
+        <Col sm={8} xs={12} className="d-flex justify-content-start p-0">
+          <div>
+            <Link to="/">
+              <StaticImage
+                src="../../images/INRome_logo_def.png"
+                width={250}
+                formats={["AUTO", "WEBP"]}
+                alt={siteTitle}
+              />
+            </Link>
+            <p className="header-title">{siteTitle}</p>
+          </div>
+        </Col>
+        <Col sm={2} xs={6} className="d-flex justify-content-end logoMobile">
+          <div>
+            <Link
+              href="https://erc.europa.eu/homepage"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <StaticImage
+                src="../../images/erc-logo.svg"
+                height={71}
+                quality={30}
+                formats={["AUTO", "WEBP"]}
+                alt="erc"
+              />
+            </Link>
+          </div>
+        </Col>
+        <Col sm={2} xs={6} className="d-flex justify-content-end logoMobile">
+          <div>
+            <Link href="https://www.sns.it/it" target="_blank" rel="noreferrer">
+              <StaticImage
+                src="../../images/logo-sns@2x_0.png"
+                height={71}
+                quality={30}
+                formats={["AUTO", "WEBP"]}
+                alt="SNS"
+              />
+            </Link>
+          </div>
+        </Col>
+      </Row>
     </Container>
   </Header>
 )
-
-const Header = styled.header`
-  background-color: #fe04fc;
-  color: #ffffff;
-  margin-bottom: 5rem;
-
-  .gatsby-image-wrapper {
-    background-color: #ffffff;
-    img {
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
+//style
+const Header = styled.section`
+  .container-fluid {
+    background-color: #8b5a40;
+    min-height: auto;
+  }
+  .header-title {
+    color: #fff;
+    font-family: "Roboto";
+    font-size: 1.2rem;
   }
 `
 
