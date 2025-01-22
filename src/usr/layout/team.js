@@ -318,7 +318,7 @@ const Team = () => {
               <Col xs="12" lg="3" className="py-3">
                 <Card>
                   <StaticImage
-                    src="../../images/seidl.jpg"
+                    src="../../images/Seidl.jpg"
                     formats={["AUTO", "WEBP"]}
                     alt="Michael Seidl"
                     className="card-img-top"
