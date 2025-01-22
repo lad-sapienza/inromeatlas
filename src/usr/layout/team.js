@@ -4,7 +4,8 @@ import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { Link } from "gatsby"
 
-const Team = () => {
+const Team = ({ language }) => {
+  const linkPrefix = `/${language}`
   return (
     <Wrapper>
       <div>
@@ -23,7 +24,7 @@ const Team = () => {
                   />
                   <Card.Body className="normale">
                     <Card.Title className="border-bottom">
-                      <Link className="card-link" to={`/en/borg`}>
+                      <Link className="card-link" to={`${linkPrefix}/borg`}>
                         Barbara Borg
                       </Link>
                     </Card.Title>
@@ -47,7 +48,7 @@ const Team = () => {
                   />
                   <Card.Body className="normale">
                     <Card.Title className="border-bottom">
-                      <Link className="card-link" to={`/en/manetta`}>
+                      <Link className="card-link" to={`${linkPrefix}/manetta`}>
                         Consuelo Manetta
                       </Link>
                     </Card.Title>
@@ -70,7 +71,7 @@ const Team = () => {
                   />
                   <Card.Body className="normale">
                     <Card.Title className="border-bottom">
-                      <Link className="card-link" to={`/en/dandrea`}>
+                      <Link className="card-link" to={`${linkPrefix}/dandrea`}>
                         Francesca d'Andrea
                       </Link>
                     </Card.Title>
@@ -93,7 +94,10 @@ const Team = () => {
                   />
                   <Card.Body className="normale">
                     <Card.Title className="border-bottom">
-                      <Link className="card-link" to={`/en/soldovieri`}>
+                      <Link
+                        className="card-link"
+                        to={`${linkPrefix}/soldovieri`}
+                      >
                         Umberto Soldovieri
                       </Link>
                     </Card.Title>
@@ -116,7 +120,7 @@ const Team = () => {
                   />
                   <Card.Body className="normale">
                     <Card.Title className="border-bottom">
-                      <Link className="card-link" to={`/en/campus`}>
+                      <Link className="card-link" to={`${linkPrefix}/campus`}>
                         Antonio Campus
                       </Link>
                     </Card.Title>
@@ -139,7 +143,7 @@ const Team = () => {
                   />
                   <Card.Body className="normale">
                     <Card.Title className="border-bottom">
-                      <Link className="card-link" to={`/en/amadasi`}>
+                      <Link className="card-link" to={`${linkPrefix}/amadasi`}>
                         Maria Elisa Amadasi
                       </Link>
                     </Card.Title>
@@ -162,7 +166,7 @@ const Team = () => {
                   />
                   <Card.Body className="normale">
                     <Card.Title className="border-bottom">
-                      <Link className="card-link" to={`/en/meucci`}>
+                      <Link className="card-link" to={`${linkPrefix}/meucci`}>
                         Davide Maria Meucci
                       </Link>
                     </Card.Title>
@@ -184,7 +188,7 @@ const Team = () => {
                   />
                   <Card.Body className="normale">
                     <Card.Title className="border-bottom">
-                      <Link className="card-link" to={`/en/durand`}>
+                      <Link className="card-link" to={`${linkPrefix}/durand`}>
                         Clara Anne-Laure Hortense Durand
                       </Link>
                     </Card.Title>
@@ -206,7 +210,7 @@ const Team = () => {
                   />
                   <Card.Body className="normale">
                     <Card.Title className="border-bottom">
-                      <Link className="card-link" to={`/en/cinque`}>
+                      <Link className="card-link" to={`${linkPrefix}/cinque`}>
                         Lorenzo De Cinque
                       </Link>
                     </Card.Title>
@@ -232,7 +236,7 @@ const Team = () => {
                   />
                   <Card.Body className="sapienza">
                     <Card.Title className="border-bottom">
-                      <Link className="card-link" to={`/en/orlandi`}>
+                      <Link className="card-link" to={`${linkPrefix}/orlandi`}>
                         Silvia Orlandi
                       </Link>
                     </Card.Title>
@@ -254,7 +258,7 @@ const Team = () => {
                   />
                   <Card.Body className="sapienza">
                     <Card.Title className="border-bottom">
-                      <Link className="card-link" to={`/en/bogdani`}>
+                      <Link className="card-link" to={`${linkPrefix}/bogdani`}>
                         Julian Bogdani
                       </Link>
                     </Card.Title>
@@ -277,7 +281,7 @@ const Team = () => {
                   />
                   <Card.Body className="sapienza">
                     <Card.Title className="border-bottom">
-                      <Link className="card-link" to={`/en/iacopini`}>
+                      <Link className="card-link" to={`${linkPrefix}/iacopini`}>
                         Eleonora Iacopini
                       </Link>
                     </Card.Title>
@@ -300,7 +304,10 @@ const Team = () => {
                   />
                   <Card.Body className="sapienza">
                     <Card.Title className="border-bottom">
-                      <Link className="card-link" to={`/en/gabrielli`}>
+                      <Link
+                        className="card-link"
+                        to={`${linkPrefix}/gabrielli`}
+                      >
                         Chantall Gabrielli
                       </Link>
                     </Card.Title>
@@ -326,7 +333,7 @@ const Team = () => {
                   />
                   <Card.Body className="ait">
                     <Card.Title className="border-bottom">
-                      <Link className="card-link" to={`/en/seidl`}>
+                      <Link className="card-link" to={`${linkPrefix}/seidl`}>
                         Michael Seidl
                       </Link>
                     </Card.Title>
@@ -348,7 +355,7 @@ const Team = () => {
                   />
                   <Card.Body className="ait">
                     <Card.Title className="border-bottom">
-                      <Link className="card-link" to={`/en/vignoli`}>
+                      <Link className="card-link" to={`${linkPrefix}/vignoli`}>
                         Michela Vignoli
                       </Link>
                     </Card.Title>
@@ -374,7 +381,7 @@ const Team = () => {
                   />
                   <Card.Body className="adv">
                     <Card.Title className="border-bottom">
-                      <Link className="card-link" to={`/en/borg`}>
+                      <Link className="card-link" to={`${linkPrefix}/bodel`}>
                         John Bodel
                       </Link>
                     </Card.Title>
@@ -397,7 +404,7 @@ const Team = () => {
                   />
                   <Card.Body className="adv">
                     <Card.Title className="border-bottom">
-                      <Link className="card-link" to={`/en/borg`}>
+                      <Link className="card-link" to={`${linkPrefix}/palombi`}>
                         Domenico Palombi
                       </Link>
                     </Card.Title>
@@ -419,7 +426,10 @@ const Team = () => {
                   />
                   <Card.Body className="adv">
                     <Card.Title className="border-bottom">
-                      <Link className="card-link" to={`/en/borg`}>
+                      <Link
+                        className="card-link"
+                        to={`${linkPrefix}/serlorenzi`}
+                      >
                         Mirella Serlorenzi
                       </Link>
                     </Card.Title>
@@ -441,7 +451,7 @@ const Team = () => {
                   />
                   <Card.Body className="adv">
                     <Card.Title className="border-bottom">
-                      <Link className="card-link" to={`/en/borg`}>
+                      <Link className="card-link" to={`${linkPrefix}/volpe`}>
                         Rita Volpe
                       </Link>
                     </Card.Title>
@@ -462,7 +472,7 @@ const Team = () => {
                   />
                   <Card.Body className="adv">
                     <Card.Title className="border-bottom">
-                      <Link className="card-link" to={`/en/borg`}>
+                      <Link className="card-link" to={`${linkPrefix}/adornato`}>
                         Gianfranco Adornato
                       </Link>
                     </Card.Title>
