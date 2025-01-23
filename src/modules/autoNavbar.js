@@ -71,50 +71,44 @@ function AutoNavbar(props) {
   return (
     <Menu>
       <Navbar expand="lg" className="bg-body-tertiary">
-        <Container>
-          <Navbar.Brand href={withPrefix(`/${currentLanguage}/`)}>
-            {props.siteTitle}
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              {filteredMenuItems.map((menuItem, index) => (
-                <div className="containerLink" key={index}>
-                  <Nav.Link
-                    href={withPrefix(
-                      `/${menuItem.frontmatter.language}/${menuItem.frontmatter.slug}`,
-                    )}
-                    className="nav-item my-2"
-                  >
-                    {menuItem.frontmatter.title}
-                  </Nav.Link>
-                </div>
-              ))}
-            </Nav>
-            <div className="language-switcher">
-              <button
-                className={`btn ${
-                  currentLanguage === "en"
-                    ? "btn-primary"
-                    : "btn-outline-primary"
-                }`}
-                onClick={() => handleLanguageChange("en")}
-              >
-                EN
-              </button>
-              <button
-                className={`btn ${
-                  currentLanguage === "it"
-                    ? "btn-primary"
-                    : "btn-outline-primary"
-                }`}
-                onClick={() => handleLanguageChange("it")}
-              >
-                IT
-              </button>
-            </div>
-          </Navbar.Collapse>
-        </Container>
+        <Navbar.Brand href={withPrefix(`/${currentLanguage}/`)}>
+          {props.siteTitle}
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            {filteredMenuItems.map((menuItem, index) => (
+              <div className="containerLink" key={index}>
+                <Nav.Link
+                  href={withPrefix(
+                    `/${menuItem.frontmatter.language}/${menuItem.frontmatter.slug}`,
+                  )}
+                  className="nav-item my-2"
+                >
+                  {menuItem.frontmatter.title}
+                </Nav.Link>
+              </div>
+            ))}
+          </Nav>
+          <div className="language-switcher">
+            <button
+              className={`btn ${
+                currentLanguage === "en" ? "btn-primary" : "btn-outline-primary"
+              }`}
+              onClick={() => handleLanguageChange("en")}
+            >
+              EN
+            </button>
+            <button
+              className={`btn ${
+                currentLanguage === "it" ? "btn-primary" : "btn-outline-primary"
+              }`}
+              onClick={() => handleLanguageChange("it")}
+            >
+              IT
+            </button>
+          </div>
+        </Navbar.Collapse>
       </Navbar>
     </Menu>
   )
