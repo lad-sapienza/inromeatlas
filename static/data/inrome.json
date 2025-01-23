@@ -6,23 +6,17 @@
   "sources": {
     "greg_plg_parcel": {
       "type": "vector",
-      "tiles": [
-        "https://inrome.sns.it/vtiles/greg_plg_parcel/{z}/{x}/{y}"
-      ],
+      "tiles": ["https://inrome.sns.it/vtiles/greg_plg_parcel/{z}/{x}/{y}"],
       "maxzoom": 24
     },
     "greg_ln": {
       "type": "vector",
-      "tiles": [
-        "https://inrome.sns.it/vtiles/greg_ln/{z}/{x}/{y}"
-      ],
+      "tiles": ["https://inrome.sns.it/vtiles/greg_ln/{z}/{x}/{y}"],
       "maxzoom": 24
     },
     "greg_pt": {
       "type": "vector",
-      "tiles": [
-        "https://inrome.sns.it/vtiles/greg_pt/{z}/{x}/{y}"
-      ],
+      "tiles": ["https://inrome.sns.it/vtiles/greg_pt/{z}/{x}/{y}"],
       "maxzoom": 24
     },
     "EsriSat": {
@@ -56,7 +50,17 @@
       },
       "paint": {
         "fill-opacity": 0.3,
-        "fill-color": "#ff0000",
+        "fill-color": [
+          "match",
+          ["get", "type"],
+          "Land",
+          "#c7ff99",
+          "Building",
+          "#fe9a25",
+          "Land,Building",
+          "#4c9102",
+          "#000"
+        ],
         "fill-outline-color": "#ffffff"
       }
     },
