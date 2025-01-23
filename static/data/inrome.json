@@ -81,7 +81,7 @@
       "type": "circle",
       "metadata": {
         "label": "Punti Gregoriano",
-        "popupTemplate": "<strong>Status: ${status}<br>Type: ${label}</strong>",
+        "popupTemplate": "${label}",
         "searchInFields": {
           "status": "Status",
           "label": "Type"
