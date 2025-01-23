@@ -44,7 +44,7 @@ const Layout = ({ children }) => {
         <Navbar />
         {isHomePage && <Slide />}
         <main>
-          <Container>{children}</Container>
+          <Container className="py-5">{children}</Container>
         </main>
         <Footer />
       </div>
