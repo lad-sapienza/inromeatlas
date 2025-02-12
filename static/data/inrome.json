@@ -44,8 +44,8 @@
         "label": "Particelle Gregoriano",
         "popupTemplate": "<strong>Parcel: ${parcel_no}<br>Type of use: ${type_of_use}<br>Type: ${type}<br>Alternative toponyms: ${alternative_toponyms}</strong>",
         "searchInFields": {
-          "parcel": "Parcel",
-          "label": "Type"
+          "parcel_no": "Parcel",
+          "type_of_use": "Type"
         }
       },
       "paint": {
@@ -62,16 +62,6 @@
           "#000"
         ],
         "fill-outline-color": "#ffffff"
-      }
-    },
-    {
-      "id": "greg_polygons_pl",
-      "source": "greg_plg_parcel",
-      "source-layer": "greg_plg_parcel",
-      "type": "line",
-      "paint": {
-        "line-color": "#ffffff",
-        "line-width": 1
       }
     },
     {
