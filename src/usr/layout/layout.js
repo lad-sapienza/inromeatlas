@@ -15,11 +15,15 @@ const Layout = ({ children }) => {
   // Determina la lingua in base al percorso
   const lang = location.pathname.includes('/it/') ? 'it' : 'en';
 
-  // Controlla se la pagina corrente è la home // @TODO DA CAMBIARE PATH IN PRODUZIONE
-  const isHomePage =
-    location.pathname === "inromeatlas/" ||
-    location.pathname === "inromeatlas/en/" ||
-    location.pathname === "inromeatlas/it/";
+// Rimuove il prefisso GitHub Pages "/inromeatlas" per evitare problemi di percorso
+const pathWithoutPrefix = location.pathname.replace(/^\/inromeatlas/, "");
+
+// Controlla se la pagina attuale è la home
+const isHomePage = 
+  pathWithoutPrefix === "/" ||
+  pathWithoutPrefix === "/en/" ||
+  pathWithoutPrefix === "/it/";
+
 
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
