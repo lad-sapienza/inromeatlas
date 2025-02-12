@@ -1,11 +1,9 @@
 import * as React from "react"
 import { Container, Nav, Navbar } from "react-bootstrap"
-import { withPrefix } from "gatsby"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
-import { navigate } from "gatsby"
+import { useStaticQuery, graphql, Link, navigate } from "gatsby"
 
-function AutoNavbar(props) {
+function AutoNavbar({ currentLang, currentPath, siteTitle }) {
   const data = useStaticQuery(graphql`
     {
       allMdx(
@@ -25,65 +23,37 @@ function AutoNavbar(props) {
     }
   `)
 
-  // Ottieni la lingua corrente dall'URL
-  const currentLanguage =
-    typeof window !== "undefined"
-      ? window.location.pathname
-          .replace(/^\/inromeatlas\//, "")
-          .split("/")[0] || "en"
-      : "en"
-
-  // Filtra le voci di menu per lingua corrente
+  // Filtra le voci di menu per la lingua corrente
   const filteredMenuItems = data.allMdx.nodes.filter(
-    menuItem => menuItem.frontmatter.language === currentLanguage,
+    menuItem => menuItem.frontmatter.language === currentLang
   )
 
-  const handleLanguageChange = lang => {
-    const currentPath = window.location.pathname
-      .replace(/\/$/, "")
-      .replace(/^\/inromeatlas\//, "") // Rimuove eventuale "/" finale e il prefisso inromeatlas
-    const currentSlug = currentPath.split("/").pop() // Ottieni lo slug della pagina corrente
-
-    let newSlug
-
-    // Cerca lo slug della pagina nella lingua selezionata
-    const correspondingPage = data.allMdx.nodes.find(
-      menuItem =>
-        menuItem.frontmatter.language === lang &&
-        menuItem.frontmatter.slug === currentSlug,
-    )
-
-    if (correspondingPage) {
-      // Usa lo slug della pagina corrispondente
-      newSlug = correspondingPage.frontmatter.slug
-    } else {
-      // Se non trovi una pagina corrispondente, usa "home" per entrambe le lingue
-      newSlug = "home"
-    }
-
-    // Costruisci il nuovo percorso senza usare withPrefix per evitare duplicazione
-    const newPath = lang === "en" ? `/en/${newSlug}` : `/it/${newSlug}`
-
-    // Naviga al nuovo percorso
-    navigate(newPath)
-  }
+  const handleLanguageChange = (lang) => {
+    // Rimuove "/it/" o "/en/" dalla path corrente e mantiene lo slug
+    const pathWithoutLang = currentPath.replace(/^\/(it|en)\//, "");
+  
+    // Genera il nuovo path con la lingua selezionata
+    const newPath = `/${lang}/${pathWithoutLang}`.replace(/\/$/, ""); // Rimuove eventuali "/" finali
+  
+    navigate(newPath);
+  };
+  
 
   return (
     <Menu>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container fluid>
-          <Navbar.Brand href={withPrefix(`/${currentLanguage}/`)}>
-            {props.siteTitle}
+          <Navbar.Brand as={Link} to={`/${currentLang}/`}>
+            {siteTitle}
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               {filteredMenuItems.map((menuItem, index) => (
                 <div className="containerLink" key={index}>
-                  <Nav.Link
-                    href={withPrefix(
-                      `/${menuItem.frontmatter.language}/${menuItem.frontmatter.slug}`,
-                    )}
+                  <Nav.Link 
+                    as={Link} 
+                    to={menuItem.frontmatter.slug === "home" ? `/${menuItem.frontmatter.language}/` : `/${menuItem.frontmatter.language}/${menuItem.frontmatter.slug}`} 
                     className="nav-item my-2"
                   >
                     {menuItem.frontmatter.title}
@@ -93,21 +63,13 @@ function AutoNavbar(props) {
             </Nav>
             <div className="language-switcher">
               <button
-                className={`btn ${
-                  currentLanguage === "en"
-                    ? "btn-primary"
-                    : "btn-outline-primary"
-                }`}
+                className={`btn ${currentLang === "en" ? "btn-primary" : "btn-outline-primary"}`}
                 onClick={() => handleLanguageChange("en")}
               >
                 EN
               </button>
               <button
-                className={`btn ${
-                  currentLanguage === "it"
-                    ? "btn-primary"
-                    : "btn-outline-primary"
-                }`}
+                className={`btn ${currentLang === "it" ? "btn-primary" : "btn-outline-primary"}`}
                 onClick={() => handleLanguageChange("it")}
               >
                 IT
@@ -132,28 +94,23 @@ const Menu = styled.div`
     color: #fff;
     border-right: 1px solid white;
   }
-
   .nav-item:hover {
     padding: 0;
     margin: 0;
     color: #000;
     border-right: 1px solid white;
   }
-
   .containerLink:hover {
     background-color: #a99e58;
   }
-
   .nav-link {
     padding: 0;
     width: 110px;
     text-align: center;
   }
-
   #basic-nav-dropdown {
     color: #fff;
   }
-
   .dropdown-menu {
     background-color: #a99e58;
     color: #fff;
@@ -162,7 +119,6 @@ const Menu = styled.div`
     border: none !important;
     margin: 0 !important;
   }
-
   .dropdown-item {
     border: 0 !important;
   }
@@ -176,29 +132,24 @@ const Menu = styled.div`
     gap: 10px;
     margin-left: auto;
   }
-
   .language-switcher .btn {
     padding: 5px 10px;
     font-size: 0.8rem;
     border-radius: 3px;
     text-transform: uppercase;
   }
-
   .language-switcher .btn-primary {
     background-color: #a99e58;
     border-color: #a99e58;
   }
-
   .language-switcher .btn-primary:hover {
     background-color: #8b5a40;
     border-color: #8b5a40;
   }
-
   .language-switcher .btn-outline-primary {
     color: #a99e58;
     border-color: #a99e58;
   }
-
   .language-switcher .btn-outline-primary:hover {
     background-color: #a99e58;
     color: #fff;
