@@ -15,11 +15,11 @@ const Layout = ({ children }) => {
   // Determina la lingua in base al percorso
   const lang = location.pathname.includes('/it/') ? 'it' : 'en';
 
-  // Controlla se la pagina corrente è la home
+  // Controlla se la pagina corrente è la home // @TODO DA CAMBIARE PATH IN PRODUZIONE
   const isHomePage =
-    location.pathname === "/" ||
-    location.pathname === "/en/" ||
-    location.pathname === "/it/";
+    location.pathname === "inromeatlas/" ||
+    location.pathname === "inromeatlas/en/" ||
+    location.pathname === "inromeatlas/it/";
 
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
