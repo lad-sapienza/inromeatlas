@@ -24,7 +24,7 @@ const HeaderSection = ({ siteTitle }) => (
         <Col sm={2} xs={6} className="d-flex justify-content-end logoMobile">
           <div>
             <Link
-              href="https://erc.europa.eu/homepage"
+              to="https://erc.europa.eu/homepage"
               target="_blank"
               rel="noreferrer"
             >

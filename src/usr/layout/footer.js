@@ -12,7 +12,7 @@ const FooterSection = () => {
         <Row className="px-5 pt-5">
           <Col sm={2} xs={12} className="d-flex ">
             <div>
-              <Link href="/">
+              <Link to="/">
                 <StaticImage
                   src="../images/INRome_logo_def.png"
                   width={140}
@@ -27,7 +27,7 @@ const FooterSection = () => {
           </Col>
 
           <Col sm={2} xs={6} className="d-flex justify-content-end">
-            <Link href="https://www.sns.it/it" target="_blank" rel="noreferrer">
+            <Link to="https://www.sns.it/it" target="_blank" rel="noreferrer">
               <StaticImage
                 src="../images/logo-sns@2x_0.png"
                 height={71}
@@ -39,7 +39,7 @@ const FooterSection = () => {
           </Col>
           <Col sm={2} xs={6} className="d-flex justify-content-end">
             <Link
-              href="https://www.uniroma1.it/it/pagina-strutturale/home"
+              to="https://www.uniroma1.it/it/pagina-strutturale/home"
               target="_blank"
               rel="noreferrer"
             >
@@ -54,7 +54,7 @@ const FooterSection = () => {
           </Col>
           <Col sm={2} xs={6} className="d-flex justify-content-end">
             <Link
-              href="https://www.ait.ac.at/en/"
+              to="https://www.ait.ac.at/en/"
               target="_blank"
               rel="noreferrer"
             >
@@ -69,7 +69,7 @@ const FooterSection = () => {
           </Col>
           <Col sm={2} xs={6} className="d-flex justify-content-end">
             <Link
-              href="https://erc.europa.eu/homepage"
+              to="https://erc.europa.eu/homepage"
               target="_blank"
               rel="noreferrer"
             >
