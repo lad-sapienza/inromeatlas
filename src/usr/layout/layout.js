@@ -10,35 +10,44 @@ import "./layout.scss"
 import Slide from "./slide"
 
 const Layout = ({ children }) => {
-  const location = useLocation();
+  const location = useLocation()
 
-  // Determina la lingua in base al percorso
-  const lang = location.pathname.includes('/it/') ? 'it' : 'en';
-
-// Rimuove il prefisso GitHub Pages "/inromeatlas" per evitare problemi di percorso
-const pathWithoutPrefix = location.pathname.replace(/^\/inromeatlas/, "");
-
-// Controlla se la pagina attuale è la home
-const isHomePage = 
-  pathWithoutPrefix === "/" ||
-  pathWithoutPrefix === "/en/" ||
-  pathWithoutPrefix === "/it/";
-
+  
+  // Controlla se la pagina attuale è la home
+  const isHomePage = ["/", "/en/", "/it/"].includes(location.pathname.replace(/^\/inromeatlas/, ""))
 
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {
           title
+          availableLanguages
+          preferredLanguage
         }
       }
     }
   `)
 
+  // Determina la lingua corrente in base all'URL oppure alla lingua preferita definita in gatsby-config.js
+  let currentLang;
+  if (
+    data.site.siteMetadata.availableLanguages &&
+    data.site.siteMetadata.preferredLanguage
+  ) {
+    currentLang = data.site.siteMetadata.availableLanguages
+      ?.map(l => {
+        return location.pathname.includes(`/${l}/`) ? l : null
+      })
+      .filter(Boolean)[0]
+    if (!currentLang) {
+      currentLang = data.site.siteMetadata.preferredLanguage
+    }
+  }
+
   return (
     <div className="container-fluid p-0">
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <AutoNavbar currentLang={lang} currentPath={location.pathname} />
+      <AutoNavbar currentLang={currentLang} />
       {isHomePage && <Slide />}
       <main>
         <Container className="py-5">{children}</Container>

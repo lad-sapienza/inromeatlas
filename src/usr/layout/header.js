@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { Link, withPrefix } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { Container, Row, Col } from "react-bootstrap"
@@ -10,7 +10,7 @@ const HeaderSection = ({ siteTitle }) => (
       <Row className="px-5 pt-5">
         <Col sm={8} xs={12} className="d-flex justify-content-start p-0">
           <div>
-            <Link to="/">
+            <Link to={withPrefix("/")}>
               <StaticImage
                 src="../images/INRome_logo_def.png"
                 width={250}
@@ -23,8 +23,8 @@ const HeaderSection = ({ siteTitle }) => (
         </Col>
         <Col sm={2} xs={6} className="d-flex justify-content-end logoMobile">
           <div>
-            <Link
-              to="https://erc.europa.eu/homepage"
+            <a
+              href="https://erc.europa.eu/homepage"
               target="_blank"
               rel="noreferrer"
             >
@@ -35,12 +35,12 @@ const HeaderSection = ({ siteTitle }) => (
                 formats={["AUTO", "WEBP"]}
                 alt="erc"
               />
-            </Link>
+            </a>
           </div>
         </Col>
         <Col sm={2} xs={6} className="d-flex justify-content-end logoMobile">
           <div>
-            <Link href="https://www.sns.it/it" target="_blank" rel="noreferrer">
+            <a href="https://www.sns.it/it" target="_blank" rel="noreferrer">
               <StaticImage
                 src="../images/logo-sns@2x_0.png"
                 height={71}
@@ -48,7 +48,7 @@ const HeaderSection = ({ siteTitle }) => (
                 formats={["AUTO", "WEBP"]}
                 alt="SNS"
               />
-            </Link>
+            </a>
           </div>
         </Col>
       </Row>

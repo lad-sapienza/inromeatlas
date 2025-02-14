@@ -27,7 +27,7 @@ const FooterSection = () => {
           </Col>
 
           <Col sm={2} xs={6} className="d-flex justify-content-end">
-            <Link to="https://www.sns.it/it" target="_blank" rel="noreferrer">
+            <a href="https://www.sns.it/it" target="_blank" rel="noreferrer">
               <StaticImage
                 src="../images/logo-sns@2x_0.png"
                 height={71}
@@ -35,11 +35,11 @@ const FooterSection = () => {
                 formats={["AUTO", "WEBP"]}
                 alt="SNS"
               />
-            </Link>
+            </a>
           </Col>
           <Col sm={2} xs={6} className="d-flex justify-content-end">
-            <Link
-              to="https://www.uniroma1.it/it/pagina-strutturale/home"
+            <a
+              href="https://www.uniroma1.it/it/pagina-strutturale/home"
               target="_blank"
               rel="noreferrer"
             >
@@ -50,11 +50,11 @@ const FooterSection = () => {
                 formats={["AUTO", "WEBP"]}
                 alt="Sapienza Università di Roma"
               />
-            </Link>
+            </a>
           </Col>
           <Col sm={2} xs={6} className="d-flex justify-content-end">
-            <Link
-              to="https://www.ait.ac.at/en/"
+            <a
+              href="https://www.ait.ac.at/en/"
               target="_blank"
               rel="noreferrer"
             >
@@ -65,11 +65,11 @@ const FooterSection = () => {
                 formats={["AUTO", "WEBP"]}
                 alt="AIT"
               />
-            </Link>
+            </a>
           </Col>
           <Col sm={2} xs={6} className="d-flex justify-content-end">
-            <Link
-              to="https://erc.europa.eu/homepage"
+            <a
+              href="https://erc.europa.eu/homepage"
               target="_blank"
               rel="noreferrer"
             >
@@ -80,7 +80,7 @@ const FooterSection = () => {
                 formats={["AUTO", "WEBP"]}
                 alt="EU"
               />
-            </Link>
+            </a>
           </Col>
         </Row>
         <Row>
