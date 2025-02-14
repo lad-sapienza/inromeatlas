@@ -4,39 +4,6 @@
  * A React component that provides a search interface for querying data from a specified source.
  * It allows users to input search criteria and displays the results based on the provided template.
  *
- * @component
- * @example
- * const source = {
- *   dQueryString: "some_query_string",
- *   // other source properties
- * };
- *
- * const resultItemTemplate = (item) => (
- *   <div key={item.id}>{item.name}</div>
- * );
- *
- * const fieldList = {
- *   // define fields for search
- * };
- *
- * const operators = {
- *   // define operators for search
- * };
- *
- * const connector = {
- *   _and: "AND",
- *   _or: "OR",
- * };
- *
- * return (
- *   <Search
- *     source={source}
- *     resultItemTemplate={resultItemTemplate}
- *     fieldList={fieldList}
- *     operators={operators}
- *     connector={connector}
- *   />
- * );
  */
 
 import React, { useState, useEffect } from "react"
@@ -47,16 +14,25 @@ import plain2directus from "../../services/transformers/plain2directus"
 import getDataFromSource from "../../services/getDataFromSource"
 import sourcePropTypes from "../../services/sourcePropTypes"
 import { defaultOperatorsProptypes } from "./defaultOperators"
+import fieldsPropTypes from "../../services/fieldsPropTypes"
+import queryString from "query-string"
 
 const Search = ({
   source,
   resultItemTemplate,
+  resultsHeaderTemplate = tot => (
+    <>
+      <h1 className="mt-5">Results</h1>
+      <p className="text-secondary">— {tot} records found</p>
+    </>
+  ),
   fieldList,
   operators,
   connector,
 }) => {
   const [searchResults, setSearchResults] = useState([])
   const [error, setError] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
   const [queryRun, setQueryRun] = useState(false)
 
   useEffect(() => {
@@ -67,9 +43,10 @@ const Search = ({
 
   const processData = async (conn, inputs) => {
     try {
-      const filter = JSON.stringify(plain2directus(conn, inputs))
+      setIsLoading(true)
+      const filter = plain2directus(conn, inputs)
 
-      const newSource = createNewSource(source, filter);
+      const newSource = createNewSource(source, filter)
 
       const data = await getDataFromSource(newSource)
       setQueryRun(true)
@@ -83,14 +60,46 @@ const Search = ({
     } catch (err) {
       console.error(err)
       setError("Error in querying remote data")
+    } finally {
+      setIsLoading(false)
     }
   }
+  
+  /** 
+   * Creates a new source object with an updated filter in the query string.
+   *
+   * @param {Object} source - The original source object.
+   * @param {Object} filter - The filter object to be added to the query string.
+   * @returns {Object} - The new source object with the updated filter.
+   */
   const createNewSource = (source, filter) => {
-    const newSource = structuredClone(source);
-    newSource.transType = "json";
-    newSource.dQueryString = `${source.dQueryString ? `${newSource.dQueryString}&` : ""}filter=${filter}`;
-    return newSource;
-  };
+    const newSource = structuredClone(source)
+    newSource.transType = "json"
+
+    // Source already has a dQueryString
+    if (typeof newSource.dQueryString !== "undefined") {
+      const queryObj = queryString.parse(newSource.dQueryString)
+      // Check if filter is available in the query
+      if (queryObj.filter) {
+        // dQueryString has a filter: parse it and add the new filter to the existing one
+        const mainFilterObj = JSON.parse(queryObj.filter)
+        queryObj.filter = JSON.stringify({
+          "_and": [mainFilterObj, filter]
+        });
+        newSource.dQueryString = queryString.stringify(queryObj)
+
+      } else {
+        // Source has a dQueryString but no filter: add filter to query object
+        queryObj.filter = JSON.stringify(filter);
+        newSource.dQueryString = queryString.stringify(queryObj)
+      }
+    } else {
+      // Source does not have a dQueryString: provide filter, as is
+      newSource.dQueryString = queryString.stringify({filter: JSON.stringify(filter)})
+    }
+
+    return newSource
+  }
 
   return (
     <>
@@ -102,14 +111,13 @@ const Search = ({
       />
 
       {error && <div className="text-danger">{error}</div>}
-
-      {queryRun && searchResults.length === 0 && !error && (
+      {isLoading && <div className="text-info">Loading...</div>}
+      {queryRun && searchResults.length === 0 && !error && !isLoading && (
         <div className="text-warning">No results found</div>
       )}
-
       {searchResults.length > 0 && !error && (
         <>
-          <h1 className="mt-5">Results</h1>
+          {resultsHeaderTemplate(searchResults.length)}
           <div className="resultsContainer">
             {searchResults.map(item => resultItemTemplate(item))}
           </div>
@@ -132,18 +140,23 @@ Search.propTypes = {
    */
   resultItemTemplate: PropTypes.func.isRequired,
   /**
+   * Template function to render the header of the results.
+   * Default is a simple header in English with the number of results.
+   */
+  resultsHeaderTemplate: PropTypes.func,
+  /**
    * List of fields to be used in the search.
    * This should be an object defining the fields available for querying.
    */
-  fieldList: PropTypes.object.isRequired,
-  
+  fieldList: fieldsPropTypes,
+
   /**
    * Object containing the identifiers of the operators (keys) and the labels to use for the UI.
    * This can be used to overwrite default options, for example, to have the UI translated in a language different from English.
    * Its presence does not impact functionality.
    */
   operators: defaultOperatorsProptypes,
-  
+
   /**
    * Object containing the logical connectors (keys) and the labels to use for the UI.
    * This can be used to overwrite the default value, for example, to have the UI translated in a language different from English.

@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 import * as bbox from "geojson-bbox"
 import getDataFromSource from "../../../services/getDataFromSource"
 import sourcePropTypes from "../../../services/sourcePropTypes"
+import fieldsPropTypes from "../../../services/fieldsPropTypes"
 
 /**
  * VectorLayerLibre component renders a vector layer on a map using GeoJSON data.
@@ -161,8 +162,7 @@ VectorLayerLibre.propTypes = {
    */
   name: PropTypes.string.isRequired,
   /**
-   * A string containing the HTML to render in the popup. Variable props can be injected using ${field_name} syntax
-   * Optional
+   * The template for the popup content. It is a string and variable properties can be used using ${field_name} syntax
    */
   popupTemplate: PropTypes.string,
   /**
@@ -179,10 +179,10 @@ VectorLayerLibre.propTypes = {
    */
   style: PropTypes.object,
   /**
-   * Array containing field that will be exposed to the search interface
+   * List of fields that will be exposed to the search interface
    * If missing the layer will NOT be searcheable
    */
-  searchInFields: PropTypes.object,
+  searchInFields: fieldsPropTypes,
 }
 
 export { VectorLayerLibre }

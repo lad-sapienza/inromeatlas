@@ -1,8 +1,8 @@
 {
-  "name": "@lab-archeologia-digitale/scms",
+  "name": "@lad-sapienza/scms",
   "private": false,
   "description": "A simple starter to get up and developing quickly with Gatsby 5 and Bootstrap 5",
-  "version": "4.0.5",
+  "version": "4.7.7",
   "author": {
     "name": "Julian Bogdani",
     "email": "julian.bogdani@uniroma1.it",
@@ -22,9 +22,11 @@
   ],
   "dependencies": {
     "@mdx-js/react": "^3.1.0",
+    "@viz-js/viz": "^3.11.0",
     "babel-plugin-styled-components": "^2.1.4",
     "bootstrap": "^5.3.3",
     "csvtojson": "^2.0.10",
+    "d3": "^7.9.0",
     "gatsby": "^5.13.7",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-manifest": "^5.13.1",
@@ -70,14 +72,16 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "start": "gatsby develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "upgrage-main": "command -v rsync >/dev/null && mkdir tmp && wget https://github.com/lab-archeologia-digitale/sCMS/archive/refs/heads/main.zip -O tmp/scms.zip && unzip tmp/scms.zip -d tmp/ && rsync -a  --exclude .cache --exclude .env.development --exclude .git --exclude .gitignore --exclude gatsby-config.js --exclude node_modules --exclude public --exclude README.md --exclude tmp --exclude src/usr --exclude static --delete tmp/sCMS-main/ . && rm -rf tmp",
+    "upgrage-dev": "command -v rsync >/dev/null && mkdir tmp && wget https://github.com/lab-archeologia-digitale/sCMS/archive/refs/heads/dev.zip -O tmp/scms.zip && unzip tmp/scms.zip -d tmp/ && rsync -a  --exclude .cache --exclude .env.development --exclude .git --exclude .gitignore --exclude gatsby-config.js --exclude node_modules --exclude public --exclude README.md --exclude tmp --exclude src/usr --exclude static --delete tmp/sCMS-dev/ . && rm -rf tmp"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lab-archeologia-digitale/sCMS.git"
+    "url": "git+https://github.com/lad-sapienza/sCMS.git"
   },
   "bugs": {
-    "url": "https://github.com/lab-archeologia-digitale/sCMS/issues"
+    "url": "https://github.com/lad-sapienza/sCMS/issues"
   },
   "homepage": "https://scms.lad-sapienza.it",
   "main": "gatsby-browser.js"
