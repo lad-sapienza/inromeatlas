@@ -13,15 +13,16 @@ import { Link, withPrefix } from "gatsby"
  */
 const LangMenu = ({ currentLang, currentPath, availableLanguages }) => {
   return (
-    <div>
+    <div className="pb-2">
         {Object.keys(availableLanguages).map(
           (lang, index) =>
             lang !== currentLang && (
-              <span className="language" key={index}>
+              <span key={index}>
                 <Link
                   to={withPrefix(
                     currentPath.replace(`/${currentLang}/`, `/${lang}/`),
                   )}
+                  className="text-light"
                 >
                   {availableLanguages[lang]}
                 </Link>
