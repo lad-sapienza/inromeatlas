@@ -37,18 +37,22 @@ const Layout = ({ children }) => {
 
   return (
     <div className="container-fluid p-0">
-      <Header siteTitle={data.site.siteMetadata?.title} />
+      <Header siteTitle={data.site.siteMetadata?.title}>
+        <div className="d-flex justify-content-end">
+          <LangMenu
+            currentLang={currentLang}
+            availableLanguages={{"en": "English", "it": "Italiano"}}
+            currentPath={location.pathname}
+          />
+        </div>
+      </Header>
 
       <AutoNavbar
         currentLang={currentLang}
         siteTitle={data.site.siteMetadata?.title}
       />
 
-      <LangMenu
-        currentLang={currentLang}
-        availableLanguages={{"en": "English", "it": "Italiano"}}
-        currentPath={location.pathname}
-      />
+      
 
       {isHomePage && <Slide />}
       <main>
