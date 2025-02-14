@@ -4,7 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { Container, Row, Col } from "react-bootstrap"
 
-const HeaderSection = ({ siteTitle }) => (
+const HeaderSection = ({ siteTitle, children }) => (
   <Header>
     <Container fluid>
       <Row className="px-5 pt-5">
@@ -52,6 +52,7 @@ const HeaderSection = ({ siteTitle }) => (
           </div>
         </Col>
       </Row>
+      { children }
     </Container>
   </Header>
 )

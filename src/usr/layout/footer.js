@@ -3,13 +3,12 @@ import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import { Container, Row, Col } from "react-bootstrap"
-import { withPrefix } from "gatsby"
 
 const FooterSection = () => {
   return (
     <Footer>
       <Container fluid>
-        <Row className="px-5 pt-5">
+        <Row className="px-5 py-5">
           <Col sm={2} xs={12} className="d-flex ">
             <div>
               <Link to="/">
@@ -82,22 +81,6 @@ const FooterSection = () => {
               />
             </a>
           </Col>
-        </Row>
-        <Row>
-          <Col sm={4} xs={12} className="d-flex justify-content-start"></Col>
-          <Col
-            sm={4}
-            xs={12}
-            className="d-flex Link-footer justify-content-center"
-          >
-            <Link to={withPrefix("en/contact")} className="footer-link">
-              CONTACT{" "}
-            </Link>
-            <Link to={withPrefix("en/credit")} className="footer-link">
-              CREDIT{" "}
-            </Link>
-          </Col>
-          <Col sm={4} xs={12} className="d-flex justify-content-end"></Col>
         </Row>
       </Container>
     </Footer>
