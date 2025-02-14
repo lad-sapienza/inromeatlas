@@ -38,7 +38,7 @@ function Output({ language }) {
               <Card>
                 <Link to={localizedContent.publications.link}>
                   <StaticImage
-                    src="../../images/biblio.png"
+                    src="../images/biblio.png"
                     formats={["AUTO", "WEBP"]}
                     alt="pubblicazioni"
                     className="card-img-top"
@@ -56,7 +56,7 @@ function Output({ language }) {
               <Card>
                 <Link to={localizedContent.software.link}>
                   <StaticImage
-                    src="../../images/software.png"
+                    src="../images/software.png"
                     formats={["AUTO", "WEBP"]}
                     alt="software"
                     className="card-img-top"
@@ -76,7 +76,7 @@ function Output({ language }) {
               <Card>
                 <Link to={localizedContent.preProjectPublications.link}>
                   <StaticImage
-                    src="../../images/biblio.png"
+                    src="../images/biblio.png"
                     formats={["AUTO", "WEBP"]}
                     alt="output"
                     className="card-img-top"
@@ -94,7 +94,7 @@ function Output({ language }) {
               <Card>
                 <Link to={localizedContent.bibliography.link}>
                   <StaticImage
-                    src="../../images/biblio2.png"
+                    src="../images/biblio2.png"
                     formats={["AUTO", "WEBP"]}
                     alt="bibliografia"
                     className="card-img-top"

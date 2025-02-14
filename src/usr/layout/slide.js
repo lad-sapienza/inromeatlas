@@ -9,7 +9,7 @@ function Slide() {
       <Carousel>
         <Carousel.Item>
           <StaticImage
-            src="../../images/slide_1.jpg"
+            src="../images/slide_1.jpg"
             className="d-block w-100"
             formats={["AUTO", "WEBP"]}
             alt="InRome"
@@ -25,7 +25,7 @@ function Slide() {
         </Carousel.Item>
         <Carousel.Item>
           <StaticImage
-            src="../../images/slide_2.jpg"
+            src="../images/slide_2.jpg"
             className="d-block w-100"
             formats={["AUTO", "WEBP"]}
             alt="InRome"
@@ -41,7 +41,7 @@ function Slide() {
         </Carousel.Item>
         <Carousel.Item>
           <StaticImage
-            src="../../images/slide_3.jpg"
+            src="../images/slide_3.jpg"
             className="d-block w-100"
             formats={["AUTO", "WEBP"]}
             alt="InRome"

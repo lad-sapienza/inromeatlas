@@ -12,7 +12,7 @@ const HeaderSection = ({ siteTitle }) => (
           <div>
             <Link to="/">
               <StaticImage
-                src="../../images/INRome_logo_def.png"
+                src="../images/INRome_logo_def.png"
                 width={250}
                 formats={["AUTO", "WEBP"]}
                 alt={siteTitle}
@@ -29,7 +29,7 @@ const HeaderSection = ({ siteTitle }) => (
               rel="noreferrer"
             >
               <StaticImage
-                src="../../images/erc-logo.svg"
+                src="../images/erc-logo.svg"
                 height={71}
                 quality={30}
                 formats={["AUTO", "WEBP"]}
@@ -42,7 +42,7 @@ const HeaderSection = ({ siteTitle }) => (
           <div>
             <Link href="https://www.sns.it/it" target="_blank" rel="noreferrer">
               <StaticImage
-                src="../../images/logo-sns@2x_0.png"
+                src="../images/logo-sns@2x_0.png"
                 height={71}
                 quality={30}
                 formats={["AUTO", "WEBP"]}

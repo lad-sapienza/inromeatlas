@@ -14,7 +14,7 @@ const FooterSection = () => {
             <div>
               <Link href="/">
                 <StaticImage
-                  src="../../images/INRome_logo_def.png"
+                  src="../images/INRome_logo_def.png"
                   width={140}
                   quality={30}
                   formats={["AUTO", "WEBP"]}
@@ -29,7 +29,7 @@ const FooterSection = () => {
           <Col sm={2} xs={6} className="d-flex justify-content-end">
             <Link href="https://www.sns.it/it" target="_blank" rel="noreferrer">
               <StaticImage
-                src="../../images/logo-sns@2x_0.png"
+                src="../images/logo-sns@2x_0.png"
                 height={71}
                 quality={30}
                 formats={["AUTO", "WEBP"]}
@@ -44,7 +44,7 @@ const FooterSection = () => {
               rel="noreferrer"
             >
               <StaticImage
-                src="../../images/sapienza.png"
+                src="../images/sapienza.png"
                 height={71}
                 quality={30}
                 formats={["AUTO", "WEBP"]}
@@ -59,7 +59,7 @@ const FooterSection = () => {
               rel="noreferrer"
             >
               <StaticImage
-                src="../../images/ait-logo_blog.svg"
+                src="../images/ait-logo_blog.svg"
                 height={71}
                 quality={30}
                 formats={["AUTO", "WEBP"]}
@@ -74,7 +74,7 @@ const FooterSection = () => {
               rel="noreferrer"
             >
               <StaticImage
-                src="../../images/eu-erc.png"
+                src="../images/eu-erc.png"
                 height={71}
                 quality={30}
                 formats={["AUTO", "WEBP"]}

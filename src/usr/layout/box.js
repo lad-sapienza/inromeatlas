@@ -30,7 +30,7 @@ function Box({ language }) {
               <Card>
                 <Link to={localizedContent.collaborations.link}>
                   <StaticImage
-                    src="../../images/progetti.png"
+                    src="../images/progetti.png"
                     formats={["AUTO", "WEBP"]}
                     alt="collaborazioni"
                     className="card-img-top"
@@ -48,7 +48,7 @@ function Box({ language }) {
               <Card>
                 <Link to={localizedContent.news.link}>
                   <StaticImage
-                    src="../../images/news.png"
+                    src="../images/news.png"
                     formats={["AUTO", "WEBP"]}
                     alt="news"
                     className="card-img-top"
@@ -64,7 +64,7 @@ function Box({ language }) {
               <Card>
                 <Link to={localizedContent.output.link}>
                   <StaticImage
-                    src="../../images/output.png"
+                    src="../images/output.png"
                     formats={["AUTO", "WEBP"]}
                     alt="output"
                     className="card-img-top"

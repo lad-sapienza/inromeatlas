@@ -16,7 +16,7 @@ const Team = ({ language }) => {
               <Col xs="12" lg="3" className="py-3">
                 <Card>
                   <StaticImage
-                    src="../../images/barbara-borg.jpg"
+                    src="../images/barbara-borg.jpg"
                     formats={["AUTO", "WEBP"]}
                     alt="Barbara Borg"
                     className="card-img-top"
@@ -40,7 +40,7 @@ const Team = ({ language }) => {
               <Col xs="12" lg="3" className="py-3">
                 <Card>
                   <StaticImage
-                    src="../../images/manetta2.jpg"
+                    src="../images/manetta2.jpg"
                     formats={["AUTO", "WEBP"]}
                     alt="Consuelo Manetta"
                     className="card-img-top"
@@ -63,7 +63,7 @@ const Team = ({ language }) => {
               <Col xs="12" lg="3" className="py-3">
                 <Card>
                   <StaticImage
-                    src="../../images/dandrea.jpg"
+                    src="../images/dandrea.jpg"
                     formats={["AUTO", "WEBP"]}
                     alt="Francesca d'Andrea"
                     className="card-img-top"
@@ -86,7 +86,7 @@ const Team = ({ language }) => {
               <Col xs="12" lg="3" className="py-3">
                 <Card>
                   <StaticImage
-                    src="../../images/soldovieri2.jpg"
+                    src="../images/soldovieri2.jpg"
                     formats={["AUTO", "WEBP"]}
                     alt="Umberto Soldovieri"
                     className="card-img-top"
@@ -112,7 +112,7 @@ const Team = ({ language }) => {
               <Col xs="12" lg="3" className="py-3">
                 <Card>
                   <StaticImage
-                    src="../../images/campus.jpg"
+                    src="../images/campus.jpg"
                     formats={["AUTO", "WEBP"]}
                     alt="Antonio Campus"
                     className="card-img-top"
@@ -135,7 +135,7 @@ const Team = ({ language }) => {
               <Col xs="12" lg="3" className="py-3">
                 <Card>
                   <StaticImage
-                    src="../../images/amadasi.jpg"
+                    src="../images/amadasi.jpg"
                     formats={["AUTO", "WEBP"]}
                     alt="Maria Elisa Amadasi"
                     className="card-img-top"
@@ -158,7 +158,7 @@ const Team = ({ language }) => {
               <Col xs="12" lg="3" className="py-3">
                 <Card>
                   <StaticImage
-                    src="../../images/meucci.jpg"
+                    src="../images/meucci.jpg"
                     formats={["AUTO", "WEBP"]}
                     alt="Davide Maria Meucci"
                     className="card-img-top"
@@ -180,7 +180,7 @@ const Team = ({ language }) => {
               <Col xs="12" lg="3" className="py-3">
                 <Card>
                   <StaticImage
-                    src="../../images/durand.jpg"
+                    src="../images/durand.jpg"
                     formats={["AUTO", "WEBP"]}
                     alt="Clara Anne-Laure Hortense Durand"
                     className="card-img-top"
@@ -202,7 +202,7 @@ const Team = ({ language }) => {
               <Col xs="12" lg="3" className="py-3">
                 <Card>
                   <StaticImage
-                    src="../../images/de_cinque.jpg"
+                    src="../images/de_cinque.jpg"
                     formats={["AUTO", "WEBP"]}
                     alt="Lorenzo De Cinque"
                     className="card-img-top"
@@ -228,7 +228,7 @@ const Team = ({ language }) => {
               <Col xs="12" lg="3" className="py-3">
                 <Card>
                   <StaticImage
-                    src="../../images/orlandi.jpg"
+                    src="../images/orlandi.jpg"
                     formats={["AUTO", "WEBP"]}
                     alt="Silvia Orlandi"
                     className="card-img-top"
@@ -250,7 +250,7 @@ const Team = ({ language }) => {
               <Col xs="12" lg="3" className="py-3">
                 <Card>
                   <StaticImage
-                    src="../../images/julian-bogdani-800x800.jpg"
+                    src="../images/julian-bogdani-800x800.jpg"
                     formats={["AUTO", "WEBP"]}
                     alt="Julian Bogdani"
                     className="card-img-top"
@@ -273,7 +273,7 @@ const Team = ({ language }) => {
               <Col xs="12" lg="3" className="py-3">
                 <Card>
                   <StaticImage
-                    src="../../images/eiacopini.jpg"
+                    src="../images/eiacopini.jpg"
                     formats={["AUTO", "WEBP"]}
                     alt="Eleonora Iacopini"
                     className="card-img-top"
@@ -296,7 +296,7 @@ const Team = ({ language }) => {
               <Col xs="12" lg="3" className="py-3">
                 <Card>
                   <StaticImage
-                    src="../../images/gabrielli.jpg"
+                    src="../images/gabrielli.jpg"
                     formats={["AUTO", "WEBP"]}
                     alt=" Chantall Gabrielli"
                     className="card-img-top"
@@ -325,7 +325,7 @@ const Team = ({ language }) => {
               <Col xs="12" lg="3" className="py-3">
                 <Card>
                   <StaticImage
-                    src="../../images/Seidl.jpg"
+                    src="../images/Seidl.jpg"
                     formats={["AUTO", "WEBP"]}
                     alt="Michael Seidl"
                     className="card-img-top"
@@ -347,7 +347,7 @@ const Team = ({ language }) => {
               <Col xs="12" lg="3" className="py-3">
                 <Card>
                   <StaticImage
-                    src="../../images/vignoli_400x400.jpg"
+                    src="../images/vignoli_400x400.jpg"
                     formats={["AUTO", "WEBP"]}
                     alt="Michela Vignoli"
                     className="card-img-top"
@@ -373,7 +373,7 @@ const Team = ({ language }) => {
               <Col xs="12" lg="3" className="py-3">
                 <Card>
                   <StaticImage
-                    src="../../images/bodel.jpg"
+                    src="../images/bodel.jpg"
                     formats={["AUTO", "WEBP"]}
                     alt="John Bodel"
                     className="card-img-top"
@@ -396,7 +396,7 @@ const Team = ({ language }) => {
               <Col xs="12" lg="3" className="py-3">
                 <Card>
                   <StaticImage
-                    src="../../images/team_icon.jpg"
+                    src="../images/team_icon.jpg"
                     formats={["AUTO", "WEBP"]}
                     alt="Domenico Palombi"
                     className="card-img-top"
@@ -418,7 +418,7 @@ const Team = ({ language }) => {
               <Col xs="12" lg="3" className="py-3">
                 <Card>
                   <StaticImage
-                    src="../../images/team_icon.jpg"
+                    src="../images/team_icon.jpg"
                     formats={["AUTO", "WEBP"]}
                     alt="Mirella Serlorenzi"
                     className="card-img-top"
@@ -443,7 +443,7 @@ const Team = ({ language }) => {
               <Col xs="12" lg="3" className="py-3">
                 <Card>
                   <StaticImage
-                    src="../../images/team_icon.jpg"
+                    src="../images/team_icon.jpg"
                     formats={["AUTO", "WEBP"]}
                     alt="Rita Volpe"
                     className="card-img-top"
@@ -464,7 +464,7 @@ const Team = ({ language }) => {
               <Col xs="12" lg="3" className="py-3">
                 <Card>
                   <StaticImage
-                    src="../../images/adornato.jpg"
+                    src="../images/adornato.jpg"
                     formats={["AUTO", "WEBP"]}
                     alt="Gianfranco Adornato"
                     className="card-img-top"
