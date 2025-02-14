@@ -36,7 +36,7 @@
       }
     },
     {
-      "id": "greg_polygons",
+      "id": "greg_plg_parcel",
       "source": "greg_plg_parcel",
       "source-layer": "greg_plg_parcel",
       "type": "fill",
