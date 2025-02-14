@@ -10,6 +10,7 @@ import "./layout.scss"
 import Slide from "./slide"
 
 const Layout = ({ children }) => {
+
   const location = useLocation()
 
   
@@ -47,7 +48,7 @@ const Layout = ({ children }) => {
   return (
     <div className="container-fluid p-0">
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <AutoNavbar currentLang={currentLang} />
+      <AutoNavbar currentLang={currentLang} currentPath={location.pathname} />
       {isHomePage && <Slide />}
       <main>
         <Container className="py-5">{children}</Container>

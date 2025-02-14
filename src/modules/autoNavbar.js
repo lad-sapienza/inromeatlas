@@ -3,8 +3,9 @@ import { Container, Nav, Navbar } from "react-bootstrap"
 import { withPrefix } from "gatsby"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
+import LangMenu from "../usr/layout/langMenu"
 
-function AutoNavbar({ currentLang }) {
+function AutoNavbar({ currentLang, currentPath }) {
   const data = useStaticQuery(graphql`
     {
       allMdx(
@@ -24,6 +25,7 @@ function AutoNavbar({ currentLang }) {
   `)
   return (
     <Menu>
+      <LangMenu currentLang={currentLang} currentPath={currentPath} />
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
