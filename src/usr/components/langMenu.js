@@ -1,6 +1,6 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import { Link, withPrefix } from "gatsby"
+import { Link } from "gatsby"
 
 /**
  * LangMenu component renders a language selection menu.
@@ -19,9 +19,7 @@ const LangMenu = ({ currentLang, currentPath, availableLanguages }) => {
             lang !== currentLang && (
               <span key={index}>
                 <Link
-                  to={withPrefix(
-                    currentPath.replace(`/${currentLang}/`, `/${lang}/`),
-                  )}
+                  to={ currentPath.replace(`/${currentLang}/`, `/${lang}/`) }
                   className="text-light"
                 >
                   {availableLanguages[lang]}
