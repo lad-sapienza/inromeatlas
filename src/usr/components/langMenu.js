@@ -1,6 +1,5 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import { Link } from "gatsby"
 
 /**
  * LangMenu component renders a language selection menu.
@@ -14,19 +13,19 @@ import { Link } from "gatsby"
 const LangMenu = ({ currentLang, currentPath, availableLanguages }) => {
   return (
     <div className="pb-2">
-        {Object.keys(availableLanguages).map(
-          (lang, index) =>
-            lang !== currentLang && (
-              <span key={index}>
-                <Link
-                  to={ currentPath.replace(`/${currentLang}/`, `/${lang}/`) }
-                  className="text-light"
-                >
-                  {availableLanguages[lang]}
-                </Link>
-              </span>
-            ),
-        )}
+      {Object.keys(availableLanguages).map(
+        (lang, index) =>
+          lang !== currentLang && (
+            <span key={index}>
+              <a
+                href={currentPath.replace(`/${currentLang}/`, `/${lang}/`)}
+                className="text-light"
+              >
+                {availableLanguages[lang]}
+              </a>
+            </span>
+          ),
+      )}
     </div>
   )
 }
